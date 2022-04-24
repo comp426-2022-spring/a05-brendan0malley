@@ -33,16 +33,80 @@
       <button id="guessnav">Guess the result</button>
     </nav>
     <div id="home">
-      
+      <h1 style="color:lightskyblue">Coin Flipping Simulator</h1>
+      <p>The three options for this simulator are as follows:</p>
+      <li>Flip a coin</li>
+      <li>Flip multiple coins</li>
+      <li>Guess the result</li>
     </div>    
     <div id="single" class="hidden">
-      
+      <h1 style="color:lightskyblue">Flip a coin</h1>
+      <p>Click the button to flip a coin and see the result</p>
+      <button style="background-color:greenyellow;" id="coin" onclick="one_coin()">CLICK ME</button>
+      <p>Outcome: <span id="resultsingle"></span></p>
+      <img src="assets/img/coin.png" id="quarter" class="bigcoin">
     </div>
     <div id="multi" class="hidden">
-      
+      <h1 style="color:lightskyblue">Flip multiple coins</h1>
+      <p>Enter a number higher than 0 into the space below</p>
+      <form action="javascript:void(0);" method="post" onsubmit="flipCoins()">
+        <label for="flipamount">Please input your number here</label>
+        <input type="number" name="flipamount" id="flipamount">
+        <input style="background-color:greenyellow;" type="submit" value="GO">
+      </form>
     </div>
+    
+    <div id="results_tbl" class="hidden">
+      <h4>Result Summary</h4>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Flip Outcome:</th>
+            <th scope="col">Number:</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Heads</td>
+            <td><span id="num_heads"></span></td>
+          </tr>
+          <tr>
+            <td>Tails</td>
+            <td><span id="num_tails"></span></td>
+          </tr>
+        </tbody>
+      </table>
+      <h4>Result Details</h4>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Flip Number:</th>
+            <th scope="col">    Flip Outcome:</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody id="details"></tbody>
+      </table>
+    </div>
+  </div>
+
     <div id="guess" class="hidden">
+      <h1 style="color:lightskyblue">Guess the result</h1>
+      <p>Click which button (HEADS or TAILS) you believe the coin will land on after the flip</p>
+      <button style="background-color:greenyellow;" id="guessheads" onclick="guess_flip('heads')">HEADS</button>
+      <button style="background-color:greenyellow;" id="guesstails" onclick="guess_flip('tails')">TAILS</button>
       
+      <h4>Your guess:</h4>
+      <p><span id="yourguess"></span></p>
+      <img src="assets/img/coin.png" id="yourguess_img" class="smallcoin">
+
+      <h4>Result:</h4>
+      <p><span id="flipresult"></span></p>
+      <img src="assets/img/coin.png" id="flipresult_img" class="smallcoin">
+
+      <h4>Outcome</h4>
+      <p><span id="guessresult"></span></p>
+
     </div>
 	<script src="main.js"></script>
   </body>
