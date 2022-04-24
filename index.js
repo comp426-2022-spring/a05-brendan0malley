@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
 //Make port
-const port = args.port || args.p || 5000
+const port = args.port || args.p || 5555
 
 //Start up server
 const server = app.listen(port, () => {
