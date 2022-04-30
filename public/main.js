@@ -1,4 +1,3 @@
-
 // Focus div based on nav button click
 document.getElementById("homenav").onclick = function(){
     document. location. reload();
@@ -62,11 +61,9 @@ function one_coin() {
     })
 }
 
-
 // Flip multiple coins and show coin images in table as well as summary results
-
 function flipCoins() {
-    number_flips = document.getElementById("flipamount").value;
+    number_flips = document.getElementById("flipnumber").value;
     fetch('http://localhost:5555/app/flips/coins', {
         body: JSON.stringify({
             "number": number_flips
@@ -127,12 +124,12 @@ function guess_flip(guess) {
         .then(function(result) {
             console.log(result);
 
-            document.getElementById("yourguess").innerHTML = guess;
-            document.getElementById("yourguess_img").setAttribute("src", "assets/img/" + guess + ".png")
+            document.getElementById("your_call").innerHTML = guess;
+            document.getElementById("your_call_img").setAttribute("src", "assets/img/" + guess + ".png")
 
-            document.getElementById("flipresult").innerHTML = result.flip;
-            document.getElementById("flipresult_img").setAttribute("src", "assets/img/" + result.flip + ".png");
+            document.getElementById("flip_result").innerHTML = result.flip;
+            document.getElementById("flip_result_img").setAttribute("src", "assets/img/" + result.flip + ".png");
 
-            document.getElementById("guessresult").innerHTML = "You " + result.result + ".";
+            document.getElementById("guess_result").innerHTML = "You " + result.result + ".";
         })
 }
